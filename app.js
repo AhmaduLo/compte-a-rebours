@@ -1,7 +1,4 @@
-
-let h2 = document.querySelector('h2');
-
-
+let h2 = document.querySelector("h2");
 
 function getChrono() {
   let now = new Date().getTime(); //date parcouri depuis 1 janvier 1970 jusqu'a now
@@ -21,6 +18,29 @@ function getChrono() {
 }
 getChrono();
 
-const countInterval = setInterval(() =>{
-getChrono();
-},1000);
+const countInterval = setInterval(() => {
+  getChrono();
+}, 1000);
+//------------------------------------dropdown-----------------------------------------------
+let dropDown = document.querySelector(".dropDown");
+let btnDrop = document.querySelector(".bloc_top");
+
+let toggleIndex = 0;
+
+btnDrop.addEventListener("click", () => {
+  //console.log(dropDown.scrollHeight); hauteur de mon dropdown
+  if (toggleIndex === 0) {
+    dropDown.style.height = `${dropDown.scrollHeight}px `;
+    toggleIndex++;
+  } else {
+    dropDown.style.height = `${btnDrop.scrollHeight}px `;
+    toggleIndex--;
+  }
+});
+//--------------------------------loader---------------------------------------------------------
+
+let loader = document.querySelector(".loader");
+
+window.addEventListener("load", () => {
+  loader.classList.add("fondu-out");
+});
